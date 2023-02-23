@@ -1,0 +1,99 @@
+# Student mark management system
+
+students = []
+courses = []
+marks = {}
+
+# Input functions
+
+def input_student_num():
+    student_num = int(input("Input the number of students: "))
+    return student_num
+
+def input_student_info():
+    id = input("Student id: ")
+    name = input("Name: ")
+    DoB = input("Date of birth: ")
+    return {"id": id, "name": name, "DoB": DoB}
+
+def input_course_num():
+    course_num = int(input("Input the number of courses: "))
+    return course_num
+
+def input_course_info():
+    id = input("Course id: ")
+    name = input("Course name: ")
+    return {"id": id, "name": name}
+
+def input_marks(course):
+    for student in students:
+        mark = float(input(f"Input mark for {student['name']} in {course['name']}: "))
+        if course['id'] not in marks:
+            marks[course['id']] = {}
+        marks[course['id']][student['id']] = mark
+
+# Listing functions
+
+def list_courses():
+    print("List of courses:")
+    for course in courses:
+        print(f"- {course['id']}: {course['name']}")
+
+def list_students():
+    print("List of students:")
+    for student in students:
+        print(f"- {student['id']}: {student['name']}")
+
+def display_marks(course):
+    print(f"Marks for course {course['name']}:")
+    for student in students:
+        if course['id'] in marks and student['id'] in marks[course['id']]:
+            mark = marks[course['id']][student['id']]
+            print(f"{student['name']}: {mark}")
+        else:
+            print(f"{student['name']}: Unknown")
+
+# Main program
+
+student_num = input_student_num()
+
+for i in range(student_num):
+    student = input_student_info()
+    students.append(student)
+
+course_num = input_course_num()
+
+for i in range(course_num):
+    course = input_course_info()
+    courses.append(course)
+
+while True:
+    print("1. Display students")
+    print("2. Display courses")
+    print("3. Input marks for a course")
+    print("4. Display student marks for a course")
+
+    action = input("Choose action: ")
+
+    if action == "1":
+        list_students()
+    elif action == "2":
+        list_courses()
+    elif action == "3":
+        list_courses()
+        course_id = input("Input course id: ")
+        course = next((c for c in courses if c['id'] == course_id), None)
+        if course is not None:
+            input_marks(course)
+        else:
+            print("Course unknown.")
+    elif action == "4":
+        list_courses()
+        course_id = input("Input course id: ")
+        course = next((c for c in courses if c['id'] == course_id), None)
+        if course is not None:
+            display_marks(course)
+        else:
+            print("Course unknown.")
+    else:
+        print("Information not available. Try again later.")
