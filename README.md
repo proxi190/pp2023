@@ -9,6 +9,7 @@ Students are expected to:
 Student Info
 =========================
 
-* Student Name: MY BEAUTY (is) FULL 
-* Student ID: ID123
+* Student Name: Vũ Phúc Hưng
+* Student ID: BI12-190
+* Student class: DS
 
