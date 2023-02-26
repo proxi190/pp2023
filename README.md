@@ -9,7 +9,7 @@ Students are expected to:
 Student Info
 =========================
 
-* Student Name: Vũ Phúc Hưng 
-* Student ID: BI12-190
-* Student class: DS
+* Student Name: Vu Phuc Hung
+* Student ID: BI12 - 190
+* Student class: Data Science
 
