@@ -1,0 +1,17 @@
+Table Name: battlefield_areas
+
+| Column Name     | Data Type    | Description                                |
+|-----------------|--------------|--------------------------------------------|
+| area_id         | INTEGER      | Unique ID for each area on the battlefield |
+| area_name       | VARCHAR(100) | Name of the area on the battlefield        |
+| terrain         | VARCHAR(50)  | Type of terrain in the area (e.g., forest, desert, hill) |
+| enemy_units     | INTEGER      | Number of enemy units in the area           |
+| ally_units      | INTEGER      | Number of ally units in the area            |
+
+CREATE TABLE battlefield_areas (
+  area_id INTEGER PRIMARY KEY,
+  area_name VARCHAR(100),
+  terrain VARCHAR(50),
+  enemy_units INTEGER,
+  ally_units INTEGER
+);
